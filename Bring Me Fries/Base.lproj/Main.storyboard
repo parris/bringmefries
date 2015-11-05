@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Find My Friend-->
+        <!--Friend Sonar-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Bring_Me_Fries" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Find My Friend" id="hKU-3Q-HY3"/>
+                    <tabBarItem key="tabBarItem" title="Friend Sonar" id="hKU-3Q-HY3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1271" y="372"/>
         </scene>
-        <!--Item-->
+        <!--Find My Friends-->
         <scene sceneID="AfC-sy-WqX">
             <objects>
                 <viewController id="d5Z-ZK-21f" customClass="ItemViewController" customModule="Bring_Me_Fries" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="v3Y-Wl-xtq"/>
+                    <tabBarItem key="tabBarItem" title="Find My Friends" id="v3Y-Wl-xtq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnG-Bk-Ggv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
