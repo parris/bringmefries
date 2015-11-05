@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B58E0E1BEBFA09004AFEF5 /* arrow-128-right.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B58E0C1BEBFA09004AFEF5 /* arrow-128-right.jpg */; };
+		00B58E0F1BEBFA09004AFEF5 /* arrow-128-up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B58E0D1BEBFA09004AFEF5 /* arrow-128-up.jpg */; };
 		426493301BEBE64D00BFE71A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264932F1BEBE64D00BFE71A /* AppDelegate.swift */; };
 		426493321BEBE64D00BFE71A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426493311BEBE64D00BFE71A /* ViewController.swift */; };
 		426493351BEBE64D00BFE71A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426493331BEBE64D00BFE71A /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B58E0C1BEBFA09004AFEF5 /* arrow-128-right.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "arrow-128-right.jpg"; sourceTree = SOURCE_ROOT; };
+		00B58E0D1BEBFA09004AFEF5 /* arrow-128-up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "arrow-128-up.jpg"; sourceTree = SOURCE_ROOT; };
 		4264932A1BEBE64D00BFE71A /* Bring Me Fries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bring Me Fries.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4264932E1BEBE64D00BFE71A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4264932F1BEBE64D00BFE71A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 			children = (
 				4264932F1BEBE64D00BFE71A /* AppDelegate.swift */,
 				426493311BEBE64D00BFE71A /* ViewController.swift */,
+				00B58E0C1BEBFA09004AFEF5 /* arrow-128-right.jpg */,
+				00B58E0D1BEBFA09004AFEF5 /* arrow-128-up.jpg */,
 				426493331BEBE64D00BFE71A /* Main.storyboard */,
 				426493361BEBE64D00BFE71A /* Images.xcassets */,
 				426493381BEBE64D00BFE71A /* LaunchScreen.xib */,
@@ -192,6 +198,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B58E0E1BEBFA09004AFEF5 /* arrow-128-right.jpg in Resources */,
+				00B58E0F1BEBFA09004AFEF5 /* arrow-128-up.jpg in Resources */,
 				426493351BEBE64D00BFE71A /* Main.storyboard in Resources */,
 				4264933A1BEBE64D00BFE71A /* LaunchScreen.xib in Resources */,
 				426493371BEBE64D00BFE71A /* Images.xcassets in Resources */,
@@ -411,6 +419,7 @@
 				4264934B1BEBE64D00BFE71A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4264934C1BEBE64D00BFE71A /* Build configuration list for PBXNativeTarget "Bring Me FriesTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +428,7 @@
 				4264934E1BEBE64D00BFE71A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

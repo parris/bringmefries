@@ -14,6 +14,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        let firstImageView = UIImageView(image: UIImage (named: "arrow-128-right.jpg"))
+        firstImageView.frame = view.frame
+        view.addSubview(firstImageView)
+        
+        imageFadeIn(firstImageView)
+    }
+    
+    func imageFadeIn(imageView: UIImageView) {
+        
+        let secondImageView = UIImageView(image: UIImage(named: "arrow-128-up.jpg"))
+        secondImageView.frame = view.frame
+        secondImageView.alpha = 0.0
+        
+        view.insertSubview(secondImageView, aboveSubview: imageView)
+        
+        UIView.animateWithDuration(1.0, delay: 1.0, options: .CurveEaseOut, animations: {
+            secondImageView.alpha = 1.0
+            }, completion: {_ in
+                imageView.image = secondImageView.image
+                secondImageView.removeFromSuperview()
+        })    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
