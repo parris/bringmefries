@@ -9,41 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var firstImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        firstImageView = UIImageView(image: UIImage (named: "arrow.png"))
+        firstImageView.center = view.center
+        view.addSubview(firstImageView)
     }
     
     override func viewWillAppear(animated: Bool) {
-        let firstImageView = UIImageView(image: UIImage (named: "arrow-128-right.jpg"))
-        firstImageView.frame = view.frame
-        view.addSubview(firstImageView)
-        
+        firstImageView.alpha = 0.0
+        firstImageView.transform = CGAffineTransformIdentity
         imageFadeIn(firstImageView)
     }
     
     func imageFadeIn(imageView: UIImageView) {
         
-        let secondImageView = UIImageView(image: UIImage(named: "arrow-128-up.jpg"))
-        secondImageView.frame = view.frame
-        secondImageView.alpha = 0.0
-        
-        view.insertSubview(secondImageView, aboveSubview: imageView)
-        
         UIView.animateWithDuration(1.0, delay: 1.0, options: .CurveEaseOut, animations: {
-            secondImageView.alpha = 1.0
-            secondImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-            }, completion: {_ in
-                imageView.image = secondImageView.image
-                secondImageView.removeFromSuperview()
-        })    }
+            imageView.alpha = 1.0
+            imageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+            }, completion: nil
+        )}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
+class ItemViewController: UIViewController {
+    
+}
