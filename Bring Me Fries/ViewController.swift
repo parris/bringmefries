@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         
         UIView.animateWithDuration(1.0, delay: 1.0, options: .CurveEaseOut, animations: {
             secondImageView.alpha = 1.0
+            secondImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
             }, completion: {_ in
                 imageView.image = secondImageView.image
                 secondImageView.removeFromSuperview()
