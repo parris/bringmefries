@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B58E0E1BEBFA09004AFEF5 /* arrow-128-right.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B58E0C1BEBFA09004AFEF5 /* arrow-128-right.jpg */; };
+		00B58E0F1BEBFA09004AFEF5 /* arrow-128-up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B58E0D1BEBFA09004AFEF5 /* arrow-128-up.jpg */; };
 		00B58E111BEC1109004AFEF5 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B58E101BEC1109004AFEF5 /* arrow.png */; };
 		426493301BEBE64D00BFE71A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264932F1BEBE64D00BFE71A /* AppDelegate.swift */; };
 		426493321BEBE64D00BFE71A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426493311BEBE64D00BFE71A /* ViewController.swift */; };
@@ -14,6 +16,9 @@
 		426493371BEBE64D00BFE71A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 426493361BEBE64D00BFE71A /* Images.xcassets */; };
 		4264933A1BEBE64D00BFE71A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426493381BEBE64D00BFE71A /* LaunchScreen.xib */; };
 		426493461BEBE64D00BFE71A /* Bring_Me_FriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426493451BEBE64D00BFE71A /* Bring_Me_FriesTests.swift */; };
+		67AAEE321BEC2D3400D3C50F /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AAEE311BEC2D3400D3C50F /* ExternalAccessory.framework */; };
+		67CE840A1BEC7F0500844E53 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE84091BEC7F0500844E53 /* Location.swift */; };
+		BB4F07385F70EDE7FA22054C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF20ED1D775D325B888ECD2 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B58E0C1BEBFA09004AFEF5 /* arrow-128-right.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "arrow-128-right.jpg"; sourceTree = SOURCE_ROOT; };
+		00B58E0D1BEBFA09004AFEF5 /* arrow-128-up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "arrow-128-up.jpg"; sourceTree = SOURCE_ROOT; };
 		00B58E101BEC1109004AFEF5 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = SOURCE_ROOT; };
+		26BC384C988027367A74AF14 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4264932A1BEBE64D00BFE71A /* Bring Me Fries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bring Me Fries.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4264932E1BEBE64D00BFE71A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4264932F1BEBE64D00BFE71A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +46,11 @@
 		4264933F1BEBE64D00BFE71A /* Bring Me FriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bring Me FriesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		426493441BEBE64D00BFE71A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		426493451BEBE64D00BFE71A /* Bring_Me_FriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bring_Me_FriesTests.swift; sourceTree = "<group>"; };
+		67AAEE301BEC2C5800D3C50F /* Bring Me Fries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Bring Me Fries.entitlements"; sourceTree = "<group>"; };
+		67AAEE311BEC2D3400D3C50F /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		67CE84091BEC7F0500844E53 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		7FF20ED1D775D325B888ECD2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8D02D3A3709FA1D55005D54 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67AAEE321BEC2D3400D3C50F /* ExternalAccessory.framework in Frameworks */,
+				BB4F07385F70EDE7FA22054C /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +73,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		384CEAED7ED51557F375050D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FF20ED1D775D325B888ECD2 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		426493211BEBE64D00BFE71A = {
 			isa = PBXGroup;
 			children = (
+				67AAEE311BEC2D3400D3C50F /* ExternalAccessory.framework */,
 				4264932C1BEBE64D00BFE71A /* Bring Me Fries */,
 				426493421BEBE64D00BFE71A /* Bring Me FriesTests */,
 				4264932B1BEBE64D00BFE71A /* Products */,
+				D3E7DDB16B9F6DA973030EFA /* Pods */,
+				384CEAED7ED51557F375050D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,9 +105,13 @@
 		4264932C1BEBE64D00BFE71A /* Bring Me Fries */ = {
 			isa = PBXGroup;
 			children = (
+				67CE84081BEC7EED00844E53 /* BluetoothServices */,
+				67AAEE301BEC2C5800D3C50F /* Bring Me Fries.entitlements */,
 				4264932F1BEBE64D00BFE71A /* AppDelegate.swift */,
 				426493311BEBE64D00BFE71A /* ViewController.swift */,
 				00B58E101BEC1109004AFEF5 /* arrow.png */,
+				00B58E0C1BEBFA09004AFEF5 /* arrow-128-right.jpg */,
+				00B58E0D1BEBFA09004AFEF5 /* arrow-128-up.jpg */,
 				426493331BEBE64D00BFE71A /* Main.storyboard */,
 				426493361BEBE64D00BFE71A /* Images.xcassets */,
 				426493381BEBE64D00BFE71A /* LaunchScreen.xib */,
@@ -115,6 +145,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		67CE84081BEC7EED00844E53 /* BluetoothServices */ = {
+			isa = PBXGroup;
+			children = (
+				67CE84091BEC7F0500844E53 /* Location.swift */,
+			);
+			name = BluetoothServices;
+			sourceTree = "<group>";
+		};
+		D3E7DDB16B9F6DA973030EFA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8D02D3A3709FA1D55005D54 /* Pods.debug.xcconfig */,
+				26BC384C988027367A74AF14 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 426493491BEBE64D00BFE71A /* Build configuration list for PBXNativeTarget "Bring Me Fries" */;
 			buildPhases = (
+				DD912AFD24E6758F4448B26B /* Check Pods Manifest.lock */,
 				426493261BEBE64D00BFE71A /* Sources */,
 				426493271BEBE64D00BFE71A /* Frameworks */,
 				426493281BEBE64D00BFE71A /* Resources */,
+				16E9675E86309EC8A03F1B9B /* Embed Pods Frameworks */,
+				6B1B724AC459BF884AD56AD9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,14 +209,18 @@
 		426493221BEBE64D00BFE71A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = katia;
 				TargetAttributes = {
 					426493291BEBE64D00BFE71A = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = KWSMP36MV5;
+						DevelopmentTeam = RQ4KTR2333;
+						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
 					};
 					4264933E1BEBE64D00BFE71A = {
 						CreatedOnToolsVersion = 6.4;
@@ -198,7 +252,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B58E0E1BEBFA09004AFEF5 /* arrow-128-right.jpg in Resources */,
 				00B58E111BEC1109004AFEF5 /* arrow.png in Resources */,
+				00B58E0F1BEBFA09004AFEF5 /* arrow-128-up.jpg in Resources */,
 				426493351BEBE64D00BFE71A /* Main.storyboard in Resources */,
 				4264933A1BEBE64D00BFE71A /* LaunchScreen.xib in Resources */,
 				426493371BEBE64D00BFE71A /* Images.xcassets in Resources */,
@@ -214,12 +270,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16E9675E86309EC8A03F1B9B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B1B724AC459BF884AD56AD9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD912AFD24E6758F4448B26B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		426493261BEBE64D00BFE71A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				426493321BEBE64D00BFE71A /* ViewController.swift in Sources */,
+				67CE840A1BEC7F0500844E53 /* Location.swift in Sources */,
 				426493301BEBE64D00BFE71A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,13 +452,14 @@
 		};
 		4264934A1BEBE64D00BFE71A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8D02D3A3709FA1D55005D54 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Bring Me Fries/Bring Me Fries.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Bring Me Fries/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Bring-Me-Fries-9999";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -361,13 +467,14 @@
 		};
 		4264934B1BEBE64D00BFE71A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26BC384C988027367A74AF14 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Bring Me Fries/Bring Me Fries.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Bring Me Fries/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Bring-Me-Fries-9999";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

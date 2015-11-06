@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Bring Me Fries
-//
-//  Created by katia on 11/5/15.
-//  Copyright (c) 2015 katia. All rights reserved.
-//
-
 import UIKit
 import CoreLocation
 
@@ -52,5 +44,4 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 class ItemViewController: UIViewController {
-    
 }

@@ -17,6 +17,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 Bring\ Me\ Fries.xcodeproj/project.xcworkspace/xcuserdata/*
+.DS_Store
 
 # CocoaPods
 #
