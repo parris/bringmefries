@@ -59,7 +59,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let between_radians = acos(numerator / denominator)
         
         //need to figure out positive/negative
-        
+        if currentHeadingVector.x <= targetHeadingVector.x && currentHeadingVector.y <= targetHeadingVector.y {
+            return -CGFloat(between_radians)
+        }
         return CGFloat(between_radians)
     }
     
