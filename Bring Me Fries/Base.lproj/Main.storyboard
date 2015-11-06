@@ -36,15 +36,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLP-XX-CAX">
-                                <rect key="frame" x="237" y="134" width="147" height="30"/>
-                                <state key="normal" title="Broadcast to a Friend"/>
-                                <connections>
-                                    <action selector="broadcastTapped:" destination="d5Z-ZK-21f" eventType="touchUpInside" id="Rwx-Pf-PBT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wp9-7j-0g4">
-                                <rect key="frame" x="260" y="221" width="101" height="30"/>
+                                <rect key="frame" x="209" y="221" width="101" height="30"/>
                                 <color key="tintColor" red="1" green="0.010051519906342232" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Disconnect all!"/>
                                 <connections>
@@ -52,25 +45,51 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXv-3R-arp">
-                                <rect key="frame" x="250" y="66" width="120" height="30"/>
+                                <rect key="frame" x="137" y="69" width="120" height="30"/>
                                 <state key="normal" title="Scan For a Friend"/>
                                 <connections>
                                     <action selector="scanTapped:" destination="d5Z-ZK-21f" eventType="touchUpInside" id="CSZ-4a-8dJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Not Found Yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJD-uN-ecu">
+                                <rect key="frame" x="302" y="73" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLP-XX-CAX">
+                                <rect key="frame" x="128" y="132" width="140" height="30"/>
+                                <state key="normal" title="Broadcast Existance"/>
+                                <connections>
+                                    <action selector="broadcastTapped:" destination="d5Z-ZK-21f" eventType="touchUpInside" id="Rwx-Pf-PBT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="312-UQ-p0E">
+                                <rect key="frame" x="293" y="132" width="129" height="30"/>
+                                <state key="normal" title="Broadcast Position"/>
+                                <connections>
+                                    <action selector="broadcastPositionTapped:" destination="d5Z-ZK-21f" eventType="touchUpInside" id="myW-5s-XMS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wp9-7j-0g4" firstAttribute="centerX" secondItem="aR2-7d-G1W" secondAttribute="centerX" id="FrN-U0-h09"/>
+                            <constraint firstItem="jJD-uN-ecu" firstAttribute="leading" secondItem="cXv-3R-arp" secondAttribute="trailing" constant="45" id="JoW-gM-Gbp"/>
                             <constraint firstItem="ndx-pj-xor" firstAttribute="top" secondItem="wp9-7j-0g4" secondAttribute="bottom" constant="300" id="SJ8-h0-mrz"/>
                             <constraint firstItem="cXv-3R-arp" firstAttribute="top" secondItem="oTb-E0-kdj" secondAttribute="bottom" constant="46" id="Sgi-b2-ZWt"/>
                             <constraint firstItem="kLP-XX-CAX" firstAttribute="centerX" secondItem="aR2-7d-G1W" secondAttribute="centerX" id="YiD-AH-nKd"/>
                             <constraint firstItem="kLP-XX-CAX" firstAttribute="top" secondItem="cXv-3R-arp" secondAttribute="bottom" constant="38" id="bkR-ua-2oV"/>
                             <constraint firstItem="cXv-3R-arp" firstAttribute="centerX" secondItem="aR2-7d-G1W" secondAttribute="centerX" id="e6p-oK-hLm"/>
                             <constraint firstItem="wp9-7j-0g4" firstAttribute="top" secondItem="kLP-XX-CAX" secondAttribute="bottom" constant="57" id="kAq-k3-KFD"/>
+                            <constraint firstItem="312-UQ-p0E" firstAttribute="leading" secondItem="kLP-XX-CAX" secondAttribute="trailing" constant="25" id="vOC-FV-q3b"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Find My Friends" id="v3Y-Wl-xtq"/>
+                    <connections>
+                        <outlet property="discoveredDeviceLabel" destination="jJD-uN-ecu" id="Mpu-AN-tg7"/>
+                        <outlet property="scanButton" destination="cXv-3R-arp" id="gmG-aN-Xer"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnG-Bk-Ggv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -4,13 +4,17 @@ import BluetoothKit
 // A Provider of location information
 class LocationProvider: BKPeripheralDelegate {
     
-    private let peripheral = BKPeripheral()
+    let peripheral = BKPeripheral()
     
     deinit {
         try! peripheral.stop()
     }
     
-    private func startPeripheral() {
+    func stop() {
+        try! peripheral.stop()
+    }
+    
+    func startPeripheral() {
         
         peripheral.delegate = self
         
@@ -31,7 +35,7 @@ class LocationProvider: BKPeripheralDelegate {
         }
     }
     
-    @objc private func sendData() {
+    @objc func sendData() {
         // TODO: Get real lat lon
         let latlon:String = "-122.40482069999997,37.782403699999996"
         let data:NSData = latlon.dataUsingEncoding(NSUTF8StringEncoding)!

@@ -2,19 +2,22 @@ import CoreBluetooth
 import BluetoothKit
 
 // A Receiver of location information
-class LocationReceiver: BKCentralDelegate, BKAvailabilityObserver {
+class LocationReceiver: BKCentralDelegate {
     
-    private let central = BKCentral()
-    private var discoveries = [BKDiscovery]()
+    let central = BKCentral()
+    var discoveries = [BKDiscovery]()
     
     deinit {
         try! central.stop()
     }
     
-    private func startCentral() {
+    func stop() {
+        try! central.stop()
+    }
+    
+    func startCentral() {
         do {
             central.delegate = self
-            central.addAvailabilityObserver(self)
             
             let configuration = BKConfiguration(
                 dataServiceUUID: LocationServiceConstants.serviceUUID,
@@ -27,7 +30,7 @@ class LocationReceiver: BKCentralDelegate, BKAvailabilityObserver {
         }
     }
     
-    private func scan() {
+    func scan(foundNewDiscovery: ([BKDiscovery]) -> Void) {
         central.scanContinuouslyWithChangeHandler({ changes, discoveries in
             // indexPathsToRemove
             let _ = changes.filter({ $0 == .Remove(discovery: nil) }).map({ NSIndexPath(forRow: self.discoveries.indexOf($0.discovery)!, inSection: 0) })
@@ -37,21 +40,14 @@ class LocationReceiver: BKCentralDelegate, BKAvailabilityObserver {
             for insertedDiscovery in changes.filter({ $0 == .Insert(discovery: nil) }) {
                 print("Discovery: \(insertedDiscovery)")
             }
-            }, stateHandler: { newState in
-            }, errorHandler: { error in
-                print("Error from scanning: \(error)")
+            
+            if (discoveries.count > 0) {
+                foundNewDiscovery(self.discoveries)
+            }
+        }, stateHandler: { newState in
+        }, errorHandler: { error in
+            print("Error from scanning: \(error)")
         })
-    }
-    
-    internal func availabilityObserver(availabilityObservable: BKAvailabilityObservable, availabilityDidChange availability: BKAvailability) {
-        if availability == .Available {
-            scan()
-        } else {
-            central.interrupScan()
-        }
-    }
-    
-    internal func availabilityObserver(availabilityObservable: BKAvailabilityObservable, unavailabilityCauseDidChange unavailabilityCause: BKUnavailabilityCause) {
     }
     
     internal func central(central: BKCentral, remotePeripheralDidDisconnect remotePeripheral: BKRemotePeripheral) {

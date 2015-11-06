@@ -1,5 +1,8 @@
 import UIKit
 import CoreLocation
+import CoreBluetooth
+
+import BluetoothKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -84,24 +87,129 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 }
 
-class ItemViewController: UIViewController {
+internal protocol RemotePeripheralViewControllerDelegate: class {
+    func remotePeripheralViewControllerWillDismiss(remotePeripheralViewController: RemotePeripheralViewController)
+}
+
+internal class RemotePeripheralViewController: UIViewController, BKRemotePeripheralDelegate {
+    internal weak var delegate: RemotePeripheralViewControllerDelegate?
+    internal let remotePeripheral: BKRemotePeripheral
     
-    var thisDevice = LocationReceiver()
-    var remoteDevice = LocationProvider()
+    
+    internal init(remotePeripheral: BKRemotePeripheral) {
+        self.remotePeripheral = remotePeripheral
+        super.init(nibName: nil, bundle: nil)
+        self.remotePeripheral.delegate = self
+    }
+    
+    internal required init?(coder aDecoder: NSCoder) {
+        fatalError("NSCoding not supported")
+    }
+    
+    internal func remotePeripheral(remotePeripheral: BKRemotePeripheral, didUpdateName name: String) {
+    }
+    
+    internal func remotePeripheral(remotePeripheral: BKRemotePeripheral, didSendArbitraryData data: NSData) {
+        print("Received data of length: \(data.length) with info: \(data)")
+    }
+    
+}
+
+class ItemViewController: UIViewController, BKAvailabilityObserver, RemotePeripheralViewControllerDelegate, BKRemotePeripheralDelegate {
+    
+    var locationReceiver = LocationReceiver()
+    var locationBroadcaster = LocationProvider()
+    internal var remotePeripheral: BKRemotePeripheral?
+    
+    var isScanning = false
+    
+    @IBOutlet weak var discoveredDeviceLabel: UILabel!
+    @IBOutlet weak var scanButton: UIButton!
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationReceiver.central.addAvailabilityObserver(self)
+    }
+    
+    func deviceFound(discoveries: [BKDiscovery]) {
+        discoveredDeviceLabel.text = "Found!"
+        
+        // in reality we'd probably want to connect to all devices not already connected
+        self.locationReceiver.central.connect(remotePeripheral: discoveries[0].remotePeripheral) { remotePeripheral, error in
+            self.remotePeripheral = remotePeripheral
+            remotePeripheral.delegate = self
+//            tableView.userInteractionEnabled = true
+//            guard error == nil else {
+//                print("Error connecting peripheral: \(error)")
+//                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//                return
+//            }
+//            let remotePeripheralViewController = RemotePeripheralViewController(remotePeripheral: remotePeripheral)
+//            remotePeripheralViewController.delegate = self
+        }
     }
     
     @IBAction func scanTapped(sender: AnyObject) {
         print("Scan")
+        if (!isScanning) {
+            locationReceiver.startCentral()
+        } else {
+            locationReceiver.central.interrupScan()
+            isScanning = false
+            scanButton.setTitle("Scan For a Friend", forState: .Normal)
+        }
     }
     
     @IBAction func broadcastTapped(sender: AnyObject) {
-        print("Broadcast")
+        print("Broadcast Existence")
+        locationBroadcaster.startPeripheral()
+    }
+    
+    @IBAction func broadcastPositionTapped(sender: AnyObject) {
+        print("Broadcast Position")
+        locationBroadcaster.sendData()
     }
     
     @IBAction func disconnectTapped(sender: AnyObject) {
         print("Disconnect")
+        locationReceiver.stop()
+        locationBroadcaster.stop()
+    }
+    
+    internal func availabilityObserver(availabilityObservable: BKAvailabilityObservable, availabilityDidChange availability: BKAvailability) {
+        if availability == .Available {
+            locationReceiver.scan(deviceFound)
+            isScanning = true
+            scanButton.setTitle("Stop Scanning", forState: .Normal)
+        } else {
+            locationReceiver.central.interrupScan()
+        }
+    }
+    
+    internal func availabilityObserver(availabilityObservable: BKAvailabilityObservable, unavailabilityCauseDidChange unavailabilityCause: BKUnavailabilityCause) {
+    }
+    
+    internal func remotePeripheral(remotePeripheral: BKRemotePeripheral, didUpdateName name: String) {
+    }
+    
+    internal func remotePeripheral(remotePeripheral: BKRemotePeripheral, didSendArbitraryData data: NSData) {
+        let str = NSString(data: data, encoding: NSUTF8StringEncoding)
+        print("Received data of length: \(data.length) with hash: \(str)")
+    }
+    
+    func remotePeripheralViewControllerWillDismiss(remotePeripheralViewController: RemotePeripheralViewController) {
+        do {
+            try locationReceiver.central.disconnectRemotePeripheral(remotePeripheralViewController.remotePeripheral)
+        } catch let error {
+            print("Error disconnecting remote peripheral: \(error)")
+        }
     }
 }
