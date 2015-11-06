@@ -44,9 +44,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func calcRotateAngle(heading: CGFloat, location1: CLLocation, location2: CLLocation) -> CGFloat {
+        let lat1 = location1.coordinate.latitude
+        let long1 = location1.coordinate.longitude
+        
+        let lat2 = location2.coordinate.latitude
+        let long2 = location2.coordinate.longitude
+        
+        let currentHeadingVector: (x: Double, y: Double) = (cos(Double(heading)), sin(Double(heading)))
+        let targetHeadingVector: (x: Double, y: Double) = (long2 - long1, lat2 - lat1)
+        
+        let numerator = currentHeadingVector.x * targetHeadingVector.x + currentHeadingVector.y * targetHeadingVector.y
+        let denominator = sqrt(pow(currentHeadingVector.x,2) + pow(currentHeadingVector.y,2)) * sqrt(pow(targetHeadingVector.x,2) + pow(targetHeadingVector.y,2))
+        let between_radians = acos(numerator / denominator)
+        
+        //need to figure out positive/negative
+        
+        return CGFloat(between_radians)
+    }
+    
     func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         heading = CGFloat(newHeading.magneticHeading) * CGFloat(M_PI) / CGFloat(180.0)
         if heading != nil && userLocation != nil {
+            let location2 = CLLocation(latitude: 50.0, longitude: -122)
+            heading = calcRotateAngle(heading, location1: userLocation, location2: location2)
             imageFadeIn(imageView, heading: heading!, userLocation: userLocation!)
         }
     }
@@ -54,6 +75,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations.first
         if heading != nil && userLocation != nil {
+            let location2 = CLLocation(latitude: 50.0, longitude: -122)
+            heading = calcRotateAngle(heading, location1: userLocation, location2: location2)
             imageFadeIn(imageView, heading: heading!, userLocation: userLocation!)
         }
     }
