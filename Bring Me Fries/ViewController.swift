@@ -13,6 +13,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var lm: CLLocationManager!
     var imageView: UIImageView!
+    var heading: CGFloat!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +30,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(animated: Bool) {
         imageView.alpha = 0.0
         imageView.transform = CGAffineTransformIdentity
-        imageFadeIn(imageView)
     }
     
-    func imageFadeIn(imageView: UIImageView) {
-        
+    func imageFadeIn(imageView: UIImageView, heading: CGFloat) {
         UIView.animateWithDuration(1.0, delay: 1.0, options: .CurveEaseOut, animations: {
             imageView.alpha = 1.0
-            imageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+            imageView.transform = CGAffineTransformMakeRotation(heading)
             }, completion: nil
         )}
 
@@ -46,7 +45,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        print(newHeading.magneticHeading)
+        // heading is in radians from north
+        heading = CGFloat(newHeading.magneticHeading) * CGFloat(M_PI) / CGFloat(180.0)
+        imageFadeIn(imageView, heading: heading)
     }
 }
 
