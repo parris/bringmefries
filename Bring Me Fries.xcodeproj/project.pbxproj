@@ -17,7 +17,9 @@
 		4264933A1BEBE64D00BFE71A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426493381BEBE64D00BFE71A /* LaunchScreen.xib */; };
 		426493461BEBE64D00BFE71A /* Bring_Me_FriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426493451BEBE64D00BFE71A /* Bring_Me_FriesTests.swift */; };
 		67AAEE321BEC2D3400D3C50F /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AAEE311BEC2D3400D3C50F /* ExternalAccessory.framework */; };
-		67CE840A1BEC7F0500844E53 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE84091BEC7F0500844E53 /* Location.swift */; };
+		67CE840A1BEC7F0500844E53 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE84091BEC7F0500844E53 /* LocationProvider.swift */; };
+		67CE840C1BEC8E6000844E53 /* LocationReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE840B1BEC8E6000844E53 /* LocationReceiver.swift */; };
+		67CE840E1BEC8F2D00844E53 /* LocationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE840D1BEC8F2D00844E53 /* LocationConstants.swift */; };
 		BB4F07385F70EDE7FA22054C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF20ED1D775D325B888ECD2 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +50,9 @@
 		426493451BEBE64D00BFE71A /* Bring_Me_FriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bring_Me_FriesTests.swift; sourceTree = "<group>"; };
 		67AAEE301BEC2C5800D3C50F /* Bring Me Fries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Bring Me Fries.entitlements"; sourceTree = "<group>"; };
 		67AAEE311BEC2D3400D3C50F /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		67CE84091BEC7F0500844E53 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		67CE84091BEC7F0500844E53 /* LocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		67CE840B1BEC8E6000844E53 /* LocationReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationReceiver.swift; sourceTree = "<group>"; };
+		67CE840D1BEC8F2D00844E53 /* LocationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationConstants.swift; sourceTree = "<group>"; };
 		7FF20ED1D775D325B888ECD2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D02D3A3709FA1D55005D54 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,7 +152,9 @@
 		67CE84081BEC7EED00844E53 /* BluetoothServices */ = {
 			isa = PBXGroup;
 			children = (
-				67CE84091BEC7F0500844E53 /* Location.swift */,
+				67CE84091BEC7F0500844E53 /* LocationProvider.swift */,
+				67CE840B1BEC8E6000844E53 /* LocationReceiver.swift */,
+				67CE840D1BEC8F2D00844E53 /* LocationConstants.swift */,
 			);
 			name = BluetoothServices;
 			sourceTree = "<group>";
@@ -324,8 +330,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				426493321BEBE64D00BFE71A /* ViewController.swift in Sources */,
-				67CE840A1BEC7F0500844E53 /* Location.swift in Sources */,
+				67CE840A1BEC7F0500844E53 /* LocationProvider.swift in Sources */,
+				67CE840E1BEC8F2D00844E53 /* LocationConstants.swift in Sources */,
 				426493301BEBE64D00BFE71A /* AppDelegate.swift in Sources */,
+				67CE840C1BEC8E6000844E53 /* LocationReceiver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
