@@ -7,22 +7,29 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    var firstImageView: UIImageView!
-    
+    var lm: CLLocationManager!
+    var imageView: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstImageView = UIImageView(image: UIImage (named: "arrow.png"))
-        firstImageView.center = view.center
-        view.addSubview(firstImageView)
+        
+        imageView = UIImageView(image: UIImage (named: "arrow.png"))
+        imageView.center = view.center
+        view.addSubview(imageView)
+        
+        lm = CLLocationManager()
+        lm.delegate = self
+        lm.startUpdatingHeading()
     }
     
     override func viewWillAppear(animated: Bool) {
-        firstImageView.alpha = 0.0
-        firstImageView.transform = CGAffineTransformIdentity
-        imageFadeIn(firstImageView)
+        imageView.alpha = 0.0
+        imageView.transform = CGAffineTransformIdentity
+        imageFadeIn(imageView)
     }
     
     func imageFadeIn(imageView: UIImageView) {
@@ -36,6 +43,10 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        print(newHeading.magneticHeading)
     }
 }
 
