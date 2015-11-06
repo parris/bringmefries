@@ -6,6 +6,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var lm: CLLocationManager!
     var imageView: UIImageView!
     var heading: CGFloat!
+    var userLocation: CLLocation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +17,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         lm = CLLocationManager()
         lm.delegate = self
+    
+        //heading
         lm.startUpdatingHeading()
+        
+        //user location
+        lm.desiredAccuracy = kCLLocationAccuracyBest
+        lm.requestAlwaysAuthorization()
+        lm.startUpdatingLocation()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -24,7 +32,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         imageView.transform = CGAffineTransformIdentity
     }
     
-    func imageFadeIn(imageView: UIImageView, heading: CGFloat) {
+    func imageFadeIn(imageView: UIImageView, heading: CGFloat, userLocation: CLLocation) {
         UIView.animateWithDuration(1.0, delay: 1.0, options: .CurveEaseOut, animations: {
             imageView.alpha = 1.0
             imageView.transform = CGAffineTransformMakeRotation(heading)
@@ -37,9 +45,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        // heading is in radians from north
         heading = CGFloat(newHeading.magneticHeading) * CGFloat(M_PI) / CGFloat(180.0)
-        imageFadeIn(imageView, heading: heading)
+        if heading != nil && userLocation != nil {
+            imageFadeIn(imageView, heading: heading!, userLocation: userLocation!)
+            heading = nil
+            userLocation = nil
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations.first
+        if heading != nil && userLocation != nil {
+            imageFadeIn(imageView, heading: heading!, userLocation: userLocation!)
+            heading = nil
+            userLocation = nil
+        }
     }
 }
 
