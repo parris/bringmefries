@@ -44,4 +44,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 class ItemViewController: UIViewController {
+    
+    var thisDevice = LocationReceiver()
+    var remoteDevice = LocationProvider()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func scanTapped(sender: AnyObject) {
+        print("Scan")
+    }
+    
+    @IBAction func broadcastTapped(sender: AnyObject) {
+        print("Broadcast")
+    }
+    
+    @IBAction func disconnectTapped(sender: AnyObject) {
+        print("Disconnect")
+    }
 }

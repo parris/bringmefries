@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gqC-6X-JEG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gqC-6X-JEG">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Friend Sonar-->
@@ -34,7 +35,40 @@
                     <view key="view" contentMode="scaleToFill" id="aR2-7d-G1W">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLP-XX-CAX">
+                                <rect key="frame" x="237" y="134" width="147" height="30"/>
+                                <state key="normal" title="Broadcast to a Friend"/>
+                                <connections>
+                                    <action selector="broadcastTapped:" destination="d5Z-ZK-21f" eventType="touchUpInside" id="Rwx-Pf-PBT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wp9-7j-0g4">
+                                <rect key="frame" x="260" y="221" width="101" height="30"/>
+                                <color key="tintColor" red="1" green="0.010051519906342232" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Disconnect all!"/>
+                                <connections>
+                                    <action selector="disconnectTapped:" destination="d5Z-ZK-21f" eventType="touchUpInside" id="TM4-c3-Ucd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXv-3R-arp">
+                                <rect key="frame" x="250" y="66" width="120" height="30"/>
+                                <state key="normal" title="Scan For a Friend"/>
+                                <connections>
+                                    <action selector="scanTapped:" destination="d5Z-ZK-21f" eventType="touchUpInside" id="CSZ-4a-8dJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wp9-7j-0g4" firstAttribute="centerX" secondItem="aR2-7d-G1W" secondAttribute="centerX" id="FrN-U0-h09"/>
+                            <constraint firstItem="ndx-pj-xor" firstAttribute="top" secondItem="wp9-7j-0g4" secondAttribute="bottom" constant="300" id="SJ8-h0-mrz"/>
+                            <constraint firstItem="cXv-3R-arp" firstAttribute="top" secondItem="oTb-E0-kdj" secondAttribute="bottom" constant="46" id="Sgi-b2-ZWt"/>
+                            <constraint firstItem="kLP-XX-CAX" firstAttribute="centerX" secondItem="aR2-7d-G1W" secondAttribute="centerX" id="YiD-AH-nKd"/>
+                            <constraint firstItem="kLP-XX-CAX" firstAttribute="top" secondItem="cXv-3R-arp" secondAttribute="bottom" constant="38" id="bkR-ua-2oV"/>
+                            <constraint firstItem="cXv-3R-arp" firstAttribute="centerX" secondItem="aR2-7d-G1W" secondAttribute="centerX" id="e6p-oK-hLm"/>
+                            <constraint firstItem="wp9-7j-0g4" firstAttribute="top" secondItem="kLP-XX-CAX" secondAttribute="bottom" constant="57" id="kAq-k3-KFD"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Find My Friends" id="v3Y-Wl-xtq"/>
                 </viewController>
