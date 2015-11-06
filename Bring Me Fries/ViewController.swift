@@ -4,6 +4,10 @@ import CoreBluetooth
 
 import BluetoothKit
 
+struct Globals {
+    static var coords = CLLocation(latitude: 50.0, longitude: -122)
+}
+
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var lm: CLLocationManager!
@@ -71,7 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         heading = CGFloat(newHeading.magneticHeading) * CGFloat(M_PI) / CGFloat(180.0)
         if heading != nil && userLocation != nil {
-            let location2 = CLLocation(latitude: 50.0, longitude: -122)
+            let location2 = Globals.coords
             heading = calcRotateAngle(heading, location1: userLocation, location2: location2)
             imageFadeIn(imageView, heading: heading!, userLocation: userLocation!)
         }
@@ -202,7 +206,9 @@ class ItemViewController: UIViewController, BKAvailabilityObserver, RemotePeriph
     
     internal func remotePeripheral(remotePeripheral: BKRemotePeripheral, didSendArbitraryData data: NSData) {
         let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-        print("Received data of length: \(data.length) with hash: \(str)")
+        let coords:[String] = str!.componentsSeparatedByString(",")
+        Globals.coords = CLLocation(latitude: Double(coords[0])!, longitude: Double(coords[1])!)
+        print("Received data of length: \(data.length) with hash: \(Globals.coords.coordinate.latitude), \(Globals.coords.coordinate.longitude)")
     }
     
     func remotePeripheralViewControllerWillDismiss(remotePeripheralViewController: RemotePeripheralViewController) {
