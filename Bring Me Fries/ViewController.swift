@@ -33,7 +33,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func imageFadeIn(imageView: UIImageView, heading: CGFloat, userLocation: CLLocation) {
-        UIView.animateWithDuration(1.0, delay: 1.0, options: .CurveEaseOut, animations: {
+        UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseOut, animations: {
             imageView.alpha = 1.0
             imageView.transform = CGAffineTransformMakeRotation(heading)
             }, completion: nil
@@ -48,8 +48,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         heading = CGFloat(newHeading.magneticHeading) * CGFloat(M_PI) / CGFloat(180.0)
         if heading != nil && userLocation != nil {
             imageFadeIn(imageView, heading: heading!, userLocation: userLocation!)
-            heading = nil
-            userLocation = nil
         }
     }
     
@@ -57,8 +55,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         userLocation = locations.first
         if heading != nil && userLocation != nil {
             imageFadeIn(imageView, heading: heading!, userLocation: userLocation!)
-            heading = nil
-            userLocation = nil
         }
     }
 }
